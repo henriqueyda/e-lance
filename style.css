@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root{
+    --azul: #116FFF;
+    --branco: #FFFFFF;
+    --preto: #000000;
+    --cinza-escuro: #282828;
+    --amarelo-esverdeado: #C3EB1E;
+}
+
+header{
+    background: var(--azul);
+    height: 232px;
+}
+#campo-pesquisa{
+    background: var(--branco);
+    height: 49px;
+    width: 50%;
+}
+
+footer{
+    background:var(--preto) ;
+    height: 100px;
+}
+footer > h6{color: var(--branco);}
