@@ -1,0 +1,18 @@
+.card{
+    margin:20px;
+    margin-left: 60px;
+}
+.card-body{
+    text-align:center;
+}
+main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table{
+    width: 30%;
+    height: 50%;
+    margin: 20px;
+    margin-right: 60px;
+}
