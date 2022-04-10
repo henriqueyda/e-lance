@@ -14,7 +14,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-        <script src="scripts/detalhes.js" type="text/javascript"></script>
+        <script src="scripts/detalhes.js" type="text/javascript" defer></script>
     </head>
 
     <body class="h-100">
@@ -48,23 +48,37 @@
                   <li class="list-group-item" id="anunciante"></li>
                 </ul>
             </div>
-            <table class="table table-bordered">
-              <caption style="caption-side:top; text-align:center"><b>Maior Lance Até Agora</b></caption>
-              <thead>
-                <tr>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Valor</th>
-                  <th scope="col">Horário</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td id="nome-maior-lance"></td>
-                  <td id="valor-maior-lance"></td>
-                  <td id="horario-maior-lance"></td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="area-lances">
+              <table class="table table-bordered">
+                <caption style="caption-side:top; text-align:center"><b>Maior Lance Até Agora</b></caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Horário</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="nome-maior-lance"></td>
+                    <td id="valor-maior-lance"></td>
+                    <td id="horario-maior-lance"></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="form-group">
+                <label for="inputlance">Enviar Lance</label>
+                <input type="hidden" id="envia-id-veiculo" name="id_veiculo">
+                <input class="form-control" id="envia-id-cliente" placeholder="Insira seu id aqui" name="id_cliente">
+                <br>
+                <input class="form-control" id="envia-nome" placeholder="Insira seu nome aqui" name="nome">
+                <br>
+                <input class="form-control" id="envia-valor" placeholder="Insira seu lance aqui" name="valor">
+                <br>
+                <button type="submit" class="btn btn-primary" onclick="enviaLance()">Enviar</button>
+              </div>
+            </div>
         </main>
         
         <footer class="d-flex justify-content-center align-items-center">

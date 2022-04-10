@@ -6,6 +6,7 @@ function getIdVeiculo(){
 
 function getInfos(){
     let idVeiculo = getIdVeiculo();
+    document.getElementById("envia-id-veiculo").value = idVeiculo;
     const xhttp = new XMLHttpRequest();
     var data = {
     "id_veiculo": idVeiculo
@@ -40,6 +41,25 @@ function infosMaiorLance(obj){
     document.getElementById("nome-maior-lance").innerHTML = `${maxLance.nome}`;
     document.getElementById("valor-maior-lance").innerHTML = `${maxLance.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`;
     document.getElementById("horario-maior-lance").innerHTML = `${maxLance.data_hora}`;
+}
+
+function enviaLance(){
+    const xhttp = new XMLHttpRequest();
+
+    var data = {
+        "id_veiculo":document.getElementById("envia-id-veiculo").value,
+        "id_cliente":document.getElementById("envia-id-cliente").value,
+        "nome":document.getElementById("envia-nome").value,
+        "valor":document.getElementById("envia-valor").value,
+    };
+    xhttp.onload = function(){
+        window.location.reload();
+    }
+    var jsondata = JSON.stringify(data);
+    var url = "https://3wd0cl8tcc.execute-api.us-east-1.amazonaws.com/versao1";
+    xhttp.open("POST", url);
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(jsondata);
 }
 
 

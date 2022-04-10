@@ -9,10 +9,9 @@ main {
     display: flex;
     justify-content: space-between;
 }
-
-.table{
-    width: 30%;
-    height: 50%;
-    margin: 20px;
-    margin-right: 60px;
+.area-lances{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin:60px
 }
