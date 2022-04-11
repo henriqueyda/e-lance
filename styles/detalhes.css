@@ -1,0 +1,17 @@
+.card{
+    margin:20px;
+    margin-left: 60px;
+}
+.card-body{
+    text-align:center;
+}
+main {
+    display: flex;
+    justify-content: space-between;
+}
+.area-lances{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin:60px
+}
