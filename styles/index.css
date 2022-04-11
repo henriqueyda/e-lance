@@ -1,0 +1,7 @@
+.btn-details{
+    background: var(--cinza-escuro);
+    color: var(--branco);
+    text-align: center;
+    font-size: 18px;
+    width: 100%;
+}
