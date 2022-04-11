@@ -26,6 +26,7 @@ function putInfos(){
 }
 
 function infosCarro(obj){
+    debugger
     document.getElementById("img-carro").src = obj.body.foto;
     document.getElementById("nome").innerHTML = `<b>${obj.body.nome}</b>`;
     document.getElementById("ano").innerHTML = `<b>Ano</b> - ${obj.body.ano}`;
