@@ -23,6 +23,7 @@ function putInfos(){
     const obj = JSON.parse(this.responseText)
     infosCarro(obj);
     infosMaiorLance(obj);
+    timer(obj);
 }
 
 function infosCarro(obj){
@@ -54,7 +55,19 @@ function enviaLance(){
         "valor":document.getElementById("envia-valor").value,
     };
     xhttp.onload = function(){
-        window.location.reload();
+        const obj = JSON.parse(this.responseText);
+        if(obj.statusCode == 200){
+            alert("Lance cadastrado com sucesso!")
+            window.location.reload();
+        }
+        if(obj.statusCode == 422){
+            if (obj.body.includes("Falta de parametros")){
+                alert("Preencha todos os campos!");
+            }
+            else {
+                alert("Valor com formato errado! Exemplo de formato correto: 50,00");
+            }
+        }
     }
     var jsondata = JSON.stringify(data);
     var url = "https://3wd0cl8tcc.execute-api.us-east-1.amazonaws.com/versao1";
@@ -63,9 +76,9 @@ function enviaLance(){
     xhttp.send(jsondata);
 }
 
-function timer(){
+function timer(obj){
     // Set the date we're counting down to
-    var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
+    var countDownDate = new Date(obj.body.data_hora_expiracao).getTime();
       
     // Update the count down every 1 second
     var x = setInterval(function() {
