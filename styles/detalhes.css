@@ -1,6 +1,5 @@
 .card{
-    margin:20px;
-    margin-left: 60px;
+
 }
 .card-body{
     text-align:center;
@@ -8,10 +7,18 @@
 main {
     display: flex;
     justify-content: space-between;
+    padding: 20px 0;
+    width: 100%;
 }
 .area-lances{
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    margin:60px
+}
+
+@media only screen and (max-width: 576px) {
+    main{
+        flex-direction: column;
+        align-items: center;
+    }
 }
