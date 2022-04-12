@@ -14,8 +14,7 @@
 }
 
 header{
-    background: var(--azul);
-    height: 232px;
+    min-height: 232px;
 }
 #campo-pesquisa{
     background: var(--branco);
@@ -24,7 +23,7 @@ header{
 }
 
 footer{
-    background:var(--preto) ;
-    height: 100px;
+    background:var(--preto);
+    min-height: 70px;
 }
 footer > h6{color: var(--branco);}
