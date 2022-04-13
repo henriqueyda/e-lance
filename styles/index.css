@@ -12,6 +12,11 @@
     font-size: 14px;
 }
 
+.owl-carousel .owl-item img{
+    height:285px;
+    width:100%;
+}
+
 @media only screen and (min-width: 1503px) {
     body{
         height: 100vh;
