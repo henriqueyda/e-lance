@@ -18,9 +18,9 @@
 </head>
 
 <body class="h-100">
-  <header class="d-flex flex-column">
-    <nav class="navbar" style="justify-content:space-evenly">
-      <a class="navbar-brand" href="#">
+  <header class="w-100 d-flex flex-column">
+    <nav class="navbar pb-0" style="justify-content:space-evenly;background: var(--azul);">
+      <a class="navbar-brand" href="index.html">
         <img src="images/logo.png" width="150" class="d-inline-block align-top" alt="">
       </a>
       <div id="campo-pesquisa" class="d-flex justify-content-between align-items-center">
@@ -31,6 +31,10 @@
         <img src="images/user-icon.png" class="mr-2" alt="">
         <h6 class="font-weight-bold p-0 m-0">Daniel Sousa</h6>
       </div>
+    </nav>
+    <nav class="w-100 d-flex align-items-center" style="background:var(--preto);height: 50px;">
+      <a class="p-3" href="index.html" style="color: var(--branco);">Home</a>
+      <a class="p-3" href="#" style="color: var(--branco);">Leilões</a>
     </nav>
   </header>
 
@@ -88,8 +92,8 @@
     </div>
   </main>
 
-  <footer class="d-flex justify-content-center align-items-center">
-    <h6>Copyright © 2022 - Todos os direitos reservados</h6>
+  <footer class="d-flex justify-content-center align-items-center w-100">
+    <h6 class="text-center">Copyright © 2022 - Todos os direitos reservados</h6>
   </footer>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
