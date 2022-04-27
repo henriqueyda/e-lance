@@ -8,7 +8,6 @@ xhttp.send();
 xhttp.onload = function(){
     const obj = JSON.parse(this.responseText);
     const arr = obj.body;
-    debugger
     arr.forEach(element => {
         let item = `<tr>
         <td><img src="${element.foto}" height="60" alt=""></th>
