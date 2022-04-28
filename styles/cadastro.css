@@ -1,0 +1,6 @@
+@media only screen and (max-width: 600px) {
+    .campos-cadastro-usuario{
+        flex-direction: column;
+        /* justify-content: center !important; */
+    }
+}
