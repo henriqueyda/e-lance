@@ -21,7 +21,9 @@ header{
     height: 49px;
     width: 50%;
 }
-
+.link{
+    color: var(--preto);
+}
 footer{
     background:var(--preto);
     min-height: 70px;

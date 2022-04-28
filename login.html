@@ -21,7 +21,7 @@
 
 <body>
 	<header class="w-100 d-flex flex-column">
-		<nav class="navbar pb-0" style="justify-content:space-evenly;background: var(--azul);">
+		<nav class="navbar pb-0" style="justify-content:flex-start;background: var(--azul);">
 		  <a class="navbar-brand" href="index.html">
 			<img src="images/logo.png" width="150" class="d-inline-block align-top" alt="">
 		  </a>
@@ -31,15 +31,6 @@
 		  <a class="p-3" href="#" style="color: var(--branco);">Leilões</a>
 		</nav>
 	  </header>
-	<!------ Include the above in your HEAD tag ---------->
-	<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
-		<div class="container">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-		</div>
-	</nav>
 	<main class="login-form">
 		<div class="cotainer">
 			<div class="row justify-content-center">
@@ -49,8 +40,7 @@
 						<div class="card-body">
 							<form action="" method="">
 								<div class="form-group row">
-									<label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail
-										Address</label>
+									<label for="email_address" class="col-md-4 col-form-label text-md-right">E-mail:</label>
 									<div class="col-md-6">
 										<input type="text" id="email_address" class="form-control" name="email-address"
 											required autofocus>
@@ -58,30 +48,18 @@
 								</div>
 
 								<div class="form-group row">
-									<label for="password" class="col-md-4	 col-form-label text-md-right">Password</label>
+									<label for="password" class="col-md-4	 col-form-label text-md-right">Senha:</label>
 									<div class="col-md-6">
 										<input type="password" id="password" class="form-control" name="password"
 											required>
 									</div>
 								</div>
 
-								<div class="form-group row">
-									<div class="col-md-6 offset-md-4">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox" name="remember"> Remember Me
-											</label>
-										</div>
-									</div>
-								</div>
 
 								<div class="col-md-6 offset-md-4">
-									<button type="submit" class="btn btn-primary">
+									<button type="button" onclick="window.location = 'areaUsuario.html'" class="btn btn-primary">
 										Entrar
 									</button>
-									<a href="#" class="btn btn-link">
-										Esqueceu a senha?
-									</a>
 								</div>
 							</form>
 						</div>
