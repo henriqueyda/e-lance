@@ -44,36 +44,25 @@ function infosMaiorLance(obj){
     document.getElementById("horario-maior-lance").innerHTML = `${maxLance.data_hora}`;
 }
 
-function enviaLance(){
-    const xhttp = new XMLHttpRequest();
+$(function () {
 
-    var data = {
-        "id_veiculo":document.getElementById("envia-id-veiculo").value,
-        "id_cliente":document.getElementById("envia-id-cliente").value,
-        "nome":document.getElementById("envia-nome").value,
-        "valor":document.getElementById("envia-valor").value,
-    };
-    xhttp.onload = function(){
-        const obj = JSON.parse(this.responseText);
-        if(obj.statusCode == 200){
-            alert("Lance cadastrado com sucesso!")
-            window.location.reload();
+    $('form').on('submit', function (e) {
+
+      e.preventDefault();
+
+      $.ajax({
+        type: 'post',
+        url: 'https://3wd0cl8tcc.execute-api.us-east-1.amazonaws.com/versao1',
+        data: $('form').serialize(),
+        success: function (response) {
+            alert("Lance inserido com sucesso")
+            window.location.reload()
         }
-        if(obj.statusCode == 422){
-            if (obj.body.includes("Falta de parametros")){
-                alert("Preencha todos os campos!");
-            }
-            else {
-                alert("Valor com formato errado! Exemplo de formato correto: 50,00");
-            }
-        }
-    }
-    var jsondata = JSON.stringify(data);
-    var url = "https://3wd0cl8tcc.execute-api.us-east-1.amazonaws.com/versao1";
-    xhttp.open("POST", url);
-    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhttp.send(jsondata);
-}
+      });
+
+    });
+
+});
 
 function timer(obj){
     // Set the date we're counting down to
