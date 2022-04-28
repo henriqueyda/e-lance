@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-lance Cadastro Cliente</title>
+    <title>E-lance - Criar Conta</title>
     <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/cadastro.css">
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -18,6 +19,7 @@
 </head>
 
 <body>
+    <!-- inicio cabeçalho -->
     <header class="w-100 d-flex flex-column">
         <nav class="navbar pb-0" style="justify-content:space-evenly;background: var(--azul);">
             <a class="navbar-brand" href="index.html">
@@ -29,7 +31,11 @@
             </div>
             <div class="d-flex justify-content-btween align-items-center">
                 <img src="images/user-icon.png" class="mr-2" alt="">
-                <h6 class="font-weight-bold p-0 m-0">Daniel Sousa</h6>
+                <div class="d-flex flex-column">
+                    <a class="font-weight-bold p-0 m-0 link" href="login.html">Acessar conta</h6>
+                        <a class="font-weight-bold p-0 m-0 link" href="cadastro.html">Cadastre-se</h6>
+
+                </div>
             </div>
         </nav>
         <nav class="w-100 d-flex align-items-center" style="background:var(--preto);height: 50px;">
@@ -37,100 +43,65 @@
             <a class="p-3" href="leiloes.html" style="color: var(--branco);">Leilões</a>
         </nav>
     </header>
-    <h1 class="text-center">Cadastro</h1>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="scripts/cadastro.js" type="text/javascript"></script>
-    <form id="dados-cadastro" class="needs-validation" novalidate style="padding: 20px;">
-        <div class="form-row">
-            <div class="col-md-4 mb-3">
-                <label for="validationCustom01">Digite seu nome</label>
-                <input type="text" class="form-control" name="nome" placeholder="Insira seu nome aqui "
-                    required>
-                <div class="valid-feedback">
-                    Parece bom ;D
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <label for="validationCustom02">Último nome</label>
-                <input type="text" class="form-control" name="sobrenome" placeholder="Insira seu sobrenome aqui"
-                    required>
-                <div class="valid-feedback">
-                    Parece bom ;D
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <label for="validationCustomUsername">Username</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    </div>
-                    <input type="text" class="form-control" name="username" placeholder="Username"
-                        aria-describedby="inputGroupPrepend" required>
-                    <div class="invalid-feedback">
-                        Username indisponível, por favor escolha outro.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-6 mb-3">
-                <label for="validationCustom03">Cidade</label>
-                <input type="text" class="form-control" name="cidade" placeholder="Cidade" required>
-                <div class="invalid-feedback">
-                    Por favor informe uma cidade válida.
-                </div>
-            </div>
-            <div class="col-md-3 mb-3">
-                <label for="validationCustom04">Estado</label>
-                <input type="text" class="form-control" name="estado" placeholder="Estado" required>
-                <div class="invalid-feedback">
-                    Por favor informe um estado válido.
-                </div>
-            </div>
-            <div class="col-md-3 mb-3">
-                <label for="validationCustom05">CEP</label>
-                <input type="text" class="form-control" name="cep" placeholder="CEP" required>
-                <div class="invalid-feedback">
-                    Por favor informe um CEP válido.
-                </div>
-            </div>
-        </div>
+    <!-- fim do cabeçalho -->
 
-        <div class="form-row">
-            <div class="col-md-4 mb-3">
-                <label for="E-mail">E-mail</label>
-                <input class="form-control" type="text" name="e-mail" id="e-mail" placeholder="Seu E-mail">
-            </div>
-            <div class="col-md-4 mb-3">
-                <label for="senha">Senha</label>
-                <input class="form-control" type="password" name="senha" id="senha" placeholder="Informe uma senha">
-            </div>
-            <div class="col-md-4 mb-3">
-                <label for="confimarSenha">Confirmar Senha</label>
-                <input class="form-control" type="password" name="confimarSenha" id="confimarSenha"
-                    placeholder="Confirme sua senha">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="invalidCheck" required>
-                <label class="form-check-label" for="invalidCheck">
-                    Eu concordo com os termos e condições.
-                </label>
-                <div class="invalid-feedback">
-                    Você deve concordar antes de prosseguir.
+    <h1 class="text-center" style="padding-top: 20px;">Criar conta</h1>
+    <form id="dados-cadastro" novalidate class="d-flex flex-column justify-content-center align-items-center"
+        style="padding: 20px;">
+        <section class="campos-cadastro-usuario col-11 col-md-8" style="display: flex;justify-content: space-between;">
+            <div class="d-flex flex-column col-12 col-sm-6">
+                <div class="mb-3">
+                    <label for="">Digite seu nome</label>
+                    <input id="nome" type="text" class="form-control" name="nome" required>
+                </div>
+                <div class="mb-3">
+                    <label for="">Último nome</label>
+                    <input type="text" id="sobrenome" class="form-control" name="sobrenome" required>
+                </div>
+                <div class="mb-3">
+                    <label for="">CEP</label>
+                    <input type="text" id="cep" class="form-control" name="cep" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" class="form-control" name="cidade" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="">Estado</label>
+                    <input type="text" id="estado" class="form-control" name="estado" readonly>
                 </div>
             </div>
-        </div>
+
+            <div class="d-flex flex-column col-12 col-sm-6">
+                <div class="mb-3">
+                    <label for="E-mail">E-mail</label>
+                    <input class="form-control" type="text" name="e-mail" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="senha">Senha</label>
+                    <input class="form-control" type="password" name="senha" id="senha" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confimarSenha">Confirmar Senha</label>
+                    <input class="form-control" type="password" name="confimarSenha" id="confimarSenha" required>
+                </div>
+            </div>
+        </section>
         <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-danger mr-4">Cancelar</button>
-            <button type="submit" class="btn btn-success">Cadastrar</button>
+            <button type="reset" class="btn font-weight-bold mr-4"
+                style="background: var(--cinza-escuro);color: var(--branco);">Limpar</button>
+            <button id="btnSubmit" type="submit" class="btn font-weight-bold"
+                style="background: var(--amarelo-esverdeado);color: var(--branco);">Cadastrar</button>
         </div>
     </form>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+        <script src="scripts/cadastro.js" type="text/javascript"></script>
 </body>
 
 </html>
