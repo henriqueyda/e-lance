@@ -2,20 +2,23 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-lance Area Usuario</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-lance - Área Usuario</title>
+  
+  <!-- Logo na barra de endereço do navegador -->
+  <link rel="shortcut icon" type="imagex/png" href="./images/logo.ico">
 
-    <link rel="stylesheet" href="./styles/global.css">
-    <link rel="stylesheet" href="./styles/areaUsuario.css">
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- Google font -> Roboto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/global.css">
+  <link rel="stylesheet" href="./styles/areaUsuario.css">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- Google font -> Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -33,8 +36,8 @@
         <img src="images/user-icon.png" class="mr-2" alt="">
         <div class="d-flex flex-column">
           <a class="font-weight-bold p-0 m-0 link" href="login.html">Acessar conta</h6>
-          <a class="font-weight-bold p-0 m-0 link" href="cadastro.html">Cadastre-se</h6>
-          
+            <a class="font-weight-bold p-0 m-0 link" href="cadastro.html">Cadastre-se</h6>
+
         </div>
       </div>
     </nav>
@@ -44,68 +47,61 @@
     </nav>
   </header>
   <!-- fim do cabeçalho -->
-    
-    
-    
-    
-    
-    <div class="main">
-        <div class="col-12 col-sm-7 col-xl-4 col-lg-5 col-md-5">
-            <h1 class="font-weight-bold w-70 mbgi-4" style="font-size: 20px;">Area do Usuario</h1>
 
-            
+  <main class="d-flex flex-column align-items-center w-100" style="min-height: 500px;justify-content: space-evenly;">
 
-            <label for="inputnome1" class="form-label">Nome</label> 
-            <input type="text" class="form-control" placeholder="Jaques" aria-label="Nome" >
-              
+    <h1 class="font-weight-bold">Área do Usuario</h1>
+    <section class="col-11 col-md-8" style="display: flex;justify-content: space-between;">
+      <div class="d-flex flex-column col-12 col-sm-6">
 
-    
-        
-          <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="jaques.bitencourt21@gmail.com">
-        
-
-        
-          <label for="inputAddress" class="form-label">Endereço</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        
-        
-          <label for="inputAddress2" class="form-label">Complemento 2</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        
-
-        
-          <label for="inputCity" class="form-label">Cidade</label>
-          <input type="text" class="form-control" id="inputCity" placeholder="sao bernardo do campo">
-      
-
-        
-          <label for="inputCity" class="form-label">Estado</label>
-          <input type="text" class="form-control" id="inputCity" placeholder="sao paulo">
-            
-          
-        
-        
-          <label for="inputZip" class="form-label">CEP</label>
-          <input type="text" class="form-control" id="inputZip" placeholder="09209-312">            
-        
+        <div class="mb-3">
+          <label for="inputnome1" class="form-label">Nome</label>
+          <input type="text" class="form-control" placeholder="Jaques Bitercourt" aria-label="Nome" readonly>
         </div>
-    </div>
-      
 
+        <div class="mb-3">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="exemplo@exemplo.com" readonly>
 
+        </div>
 
-    <!-- inicio rodape -->
-    <footer class="d-flex justify-content-center align-items-center w-100">
-        <h6 class="text-center">Copyright © 2022 - Todos os direitos reservados</h6>
-    </footer>
-    <!-- fim do rodape -->
-    <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+        <div class="mb-3">
+          <label for="inputZip" class="form-label">CEP</label>
+          <input type="text" class="form-control" id="inputZip" placeholder="09.209-312" readonly>
+
+        </div>
+      </div>
+
+      <div class="d-flex flex-column col-12 col-sm-6">
+        <div class="mb-3">
+          <label for="inputAddress" class="form-label">Endereço</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="R. exemplo" readonly>
+        </div>
+
+        <div class="mb-3">
+          <label for="inputCity" class="form-label">Cidade</label>
+          <input type="text" class="form-control" id="inputCity" placeholder="São Paulo" readonly>
+        </div>
+
+        <div class="mb-3">
+          <label for="inputCity" class="form-label">Estado</label>
+          <input type="text" class="form-control" id="inputCity" placeholder="SP" readonly>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- inicio rodape -->
+  <footer class="d-flex justify-content-center align-items-center w-100">
+    <h6 class="text-center">Copyright © 2022 - Todos os direitos reservados</h6>
+  </footer>
+  <!-- fim do rodape -->
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
