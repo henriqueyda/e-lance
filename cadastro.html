@@ -45,8 +45,8 @@
     </header>
     <!-- fim do cabeçalho -->
 
-    <h1 class="text-center" style="padding-top: 20px;">Criar conta</h1>
-    <form id="dados-cadastro" novalidate class="d-flex flex-column justify-content-center align-items-center"
+    <h1 class="text-center" novalidate style="padding-top: 20px;">Criar conta</h1>
+    <form id="dados-cadastro" class="d-flex flex-column justify-content-center align-items-center"
         style="padding: 20px;">
         <section class="campos-cadastro-usuario col-11 col-md-8" style="display: flex;justify-content: space-between;">
             <div class="d-flex flex-column col-12 col-sm-6">
@@ -55,7 +55,7 @@
                     <input id="nome" type="text" class="form-control" name="nome" required>
                 </div>
                 <div class="mb-3">
-                    <label for="">Último nome</label>
+                    <label for="">Sobrenome</label>
                     <input type="text" id="sobrenome" class="form-control" name="sobrenome" required>
                 </div>
                 <div class="mb-3">
@@ -73,6 +73,14 @@
             </div>
 
             <div class="d-flex flex-column col-12 col-sm-6">
+                <div class="mb-3">
+                    <label for="">Endereço</label>
+                    <input type="text" id="endereco" class="form-control" name="endereco" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="">Número</label>
+                    <input type="text" id="numero" class="form-control" name="numero" required>
+                </div>
                 <div class="mb-3">
                     <label for="E-mail">E-mail</label>
                     <input class="form-control" type="text" name="e-mail" id="email" required>

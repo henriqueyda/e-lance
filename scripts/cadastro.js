@@ -19,15 +19,6 @@ $(function () {
         }
       });
 
-    $.ajax({
-      type: 'post',
-      url: 'https://feegcmfjie.execute-api.us-east-1.amazonaws.com/versao1',
-      data: $('form').serialize(),
-      success: function () {
-        alert('form was submitted');
-      }
-    });
-
   });
 
 });
@@ -44,7 +35,7 @@ $('#sobrenome').keyup(function () {
 
 //mask para o campo cep
 $('#cep').on('input', function () {
-  $('#cep').mask("00.000-000");
+  $('#cep').mask("00000-000");
 });
 
 $('#cep').blur(function () {
@@ -57,10 +48,11 @@ $('#cep').blur(function () {
     dataType: 'json',
     success: function (data) {
       if (data.erro != 'true') {
-        alert('deu certo')
+        alert('CEP encontrado!')
         console.log(data)
         $('#cidade').val(data.localidade);
         $('#estado').val(data.uf);
+        $('#endereco').val(data.logradouro);
       } else {
         alert('Cep não encontrado! Digite um cep válido.');
         $('#cep').val('');
@@ -81,7 +73,7 @@ $('#email').keyup(function () {
 
 $('#confimarSenha').blur(function () {
   if ($('#confimarSenha').val() != $('#senha').val()) {
-    alert('As senha não se condizem.');
+    alert('As senha não coincidem.');
     $('#confimarSenha').val('');
     $('#senha').val('');
     $('#btnSubmit').attr('disabled', true);
