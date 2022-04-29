@@ -7,6 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>E-lance Login</title>
 
+	<!-- Logo na barra de endereço do navegador -->
+	<link rel="shortcut icon" type="imagex/png" href="./images/logo.ico">
+
 	<link rel="stylesheet" href="./styles/global.css">
 	<link rel="stylesheet" href="./styles/index.css">
 	<link rel="stylesheet" href="./styles/login.css">
@@ -22,15 +25,15 @@
 <body>
 	<header class="w-100 d-flex flex-column">
 		<nav class="navbar pb-0" style="justify-content:flex-start;background: var(--azul);">
-		  <a class="navbar-brand" href="index.html">
-			<img src="images/logo.png" width="150" class="d-inline-block align-top" alt="">
-		  </a>
+			<a class="navbar-brand" href="index.html">
+				<img src="images/logo.png" width="150" class="d-inline-block align-top" alt="">
+			</a>
 		</nav>
 		<nav class="w-100 d-flex align-items-center" style="background:var(--preto);height: 50px;">
-		  <a class="p-3" href="index.html" style="color: var(--branco);">Home</a>
-		  <a class="p-3" href="#" style="color: var(--branco);">Leilões</a>
+			<a class="p-3" href="index.html" style="color: var(--branco);">Home</a>
+			<a class="p-3" href="#" style="color: var(--branco);">Leilões</a>
 		</nav>
-	  </header>
+	</header>
 	<main class="login-form">
 		<div class="cotainer">
 			<div class="row justify-content-center">
@@ -40,7 +43,8 @@
 						<div class="card-body">
 							<form action="" method="">
 								<div class="form-group row">
-									<label for="email_address" class="col-md-4 col-form-label text-md-right">E-mail:</label>
+									<label for="email_address"
+										class="col-md-4 col-form-label text-md-right">E-mail:</label>
 									<div class="col-md-6">
 										<input type="text" id="email_address" class="form-control" name="email-address"
 											required autofocus>
@@ -57,7 +61,8 @@
 
 
 								<div class="col-md-6 offset-md-4">
-									<button type="button" onclick="window.location = 'areaUsuario.html'" class="btn btn-primary">
+									<button type="button" onclick="window.location = 'areaUsuario.html'"
+										class="btn btn-primary">
 										Entrar
 									</button>
 								</div>
@@ -73,4 +78,5 @@
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
 </body>
+
 </html>
