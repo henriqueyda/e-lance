@@ -55,8 +55,13 @@ $(function () {
         url: 'https://3wd0cl8tcc.execute-api.us-east-1.amazonaws.com/versao1',
         data: $('form').serialize(),
         success: function (response) {
+          if(response.statusCode == "410"){
+            alert("Oferta expirada! Não é possível inserir lances")
+          }
+          if(response.statusCode == "200"){
             alert("Lance inserido com sucesso")
             window.location.reload()
+          }
         }
       });
 

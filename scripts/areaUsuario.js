@@ -1,6 +1,6 @@
 const xhttp = new XMLHttpRequest();
 
-var url = "https://gjpmh4jaal.execute-api.us-east-1.amazonaws.com/versao-1";
+var url = "https://w9bdr30j99.execute-api.us-east-1.amazonaws.com/versao1";
 
 xhttp.open("POST", url);
 xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
