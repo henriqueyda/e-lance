@@ -24,5 +24,7 @@ xhttp.onload = () => {
         $("#endereco").val(prop.endereco)
         $("#numero").val(prop.numero)
         $("#cep").val(prop.cep)
+    }else{
+        alert('Estamos com problemas na consulta dos seus dados. Entre em contato com um Administrador!')
     }
 };
