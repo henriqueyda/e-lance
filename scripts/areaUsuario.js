@@ -22,6 +22,7 @@ xhttp.onload = () => {
         $("#estado").val(prop.estado)
         $("#cidade").val(prop.cidade)
         $("#endereco").val(prop.endereco)
+        $("#endereco").attr('title', prop.endereco)
         $("#numero").val(prop.numero)
         $("#cep").val(prop.cep)
     }else{
