@@ -50,42 +50,51 @@
 
   <main class="d-flex flex-column align-items-center w-100" style="min-height: 500px;justify-content: space-evenly;">
 
-    <h1 class="font-weight-bold">Área do Usuario</h1>
+    <h1 class="font-weight-bold pt-5">Área do Usuario</h1>
     <section class="col-11 col-md-8" style="display: flex;justify-content: space-between;">
       <div class="d-flex flex-column col-12 col-sm-6">
 
         <div class="mb-3">
-          <label for="inputnome1" class="form-label">Nome</label>
-          <input type="text" class="form-control" placeholder="Jaques Bitercourt" aria-label="Nome" readonly>
+          <label for="" class="form-label">Nome</label>
+          <input type="text" id="nome" class="form-control" aria-label="Nome" readonly>
         </div>
 
         <div class="mb-3">
-          <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" placeholder="exemplo@exemplo.com" readonly>
+          <label for="" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" readonly>
 
         </div>
 
         <div class="mb-3">
-          <label for="inputZip" class="form-label">CEP</label>
-          <input type="text" class="form-control" id="inputZip" placeholder="09.209-312" readonly>
+          <label for="" class="form-label">CEP</label>
+          <input type="text" class="form-control" id="cep" readonly>
 
         </div>
       </div>
 
       <div class="d-flex flex-column col-12 col-sm-6">
+        <div class="d-flex">
+          <div class="mb-3 w-100">
+            <label for="" class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="endereco" readonly>
+          </div>
+
+          <div class="mb-3 pl-2" style="width: 30%;">
+            <label for="" class="form-label">Numero</label>
+            <input type="text" class="form-control" id="numero" readonly>
+          </div>
+        </div>
+
+
+
         <div class="mb-3">
-          <label for="inputAddress" class="form-label">Endereço</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="R. exemplo" readonly>
+          <label for="" class="form-label">Cidade</label>
+          <input type="text" class="form-control" id="cidade" readonly>
         </div>
 
         <div class="mb-3">
-          <label for="inputCity" class="form-label">Cidade</label>
-          <input type="text" class="form-control" id="inputCity" placeholder="São Paulo" readonly>
-        </div>
-
-        <div class="mb-3">
-          <label for="inputCity" class="form-label">Estado</label>
-          <input type="text" class="form-control" id="inputCity" placeholder="SP" readonly>
+          <label for="" class="form-label">Estado</label>
+          <input type="text" class="form-control" id="estado" readonly>
         </div>
       </div>
     </section>
@@ -102,6 +111,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
+    <script src="./scripts/areaUsuario.js"></script>
 </body>
 
 </html>
