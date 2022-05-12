@@ -6,7 +6,7 @@ xhttp.open("POST", url);
 xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
 var data = {
-    "id": "768943fa-5fcc-4cba-a86b-7b35f6618ba8"
+    "email": "henrique.ydaa@gmail.com"
 };
 var jsondata = JSON.stringify(data);
 
