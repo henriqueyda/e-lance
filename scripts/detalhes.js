@@ -60,7 +60,7 @@ $(function () {
       }
       if(email != null){
         let data = $('form').serialize();
-        data.push({name: "email", value: NonFormValue})
+        data.push({name: "email", value: email})
 
         $.ajax({
           type: 'post',
