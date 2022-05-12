@@ -50,20 +50,36 @@ $(function () {
 
       e.preventDefault();
 
-      $.ajax({
-        type: 'post',
-        url: 'https://3wd0cl8tcc.execute-api.us-east-1.amazonaws.com/versao1',
-        data: $('form').serialize(),
-        success: function (response) {
-          if(response.statusCode == "410"){
-            alert("Oferta expirada! Não é possível inserir lances")
-          }
-          if(response.statusCode == "200"){
-            alert("Lance inserido com sucesso")
-            window.location.reload()
-          }
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split( ';' );
+      let email;
+      for( let i = 0; i < ca.length; i++ ){
+        if( ca[i].indexOf( "username=" ) == 0 ){
+          email = ca[i].substring( "username=".length, ca[i].length );
         }
-      });
+      }
+      if(email != null){
+        let data = $('form').serialize();
+        data.push({name: "email", value: NonFormValue})
+
+        $.ajax({
+          type: 'post',
+          url: 'https://3wd0cl8tcc.execute-api.us-east-1.amazonaws.com/versao1',
+          data: data,
+          success: function (response) {
+            if(response.statusCode == "410"){
+              alert("Oferta expirada! Não é possível inserir lances");
+            }
+            if(response.statusCode == "200"){
+              alert("Lance inserido com sucesso")
+              window.location.reload()
+            }
+          }
+        });
+      }
+      else {
+        alert('Você precisa estar logado para fazer um lance');
+      }
 
     });
 
