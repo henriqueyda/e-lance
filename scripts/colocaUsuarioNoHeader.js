@@ -35,3 +35,4 @@ function getUsuario(){
         document.getElementById("nome-usuario").style.display = 'none';
     }
 }
+getUsuario();
