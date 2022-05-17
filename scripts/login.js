@@ -18,6 +18,7 @@ $(function () {
                     let c  = username + ";" + expires + ";path=/";
                     document.cookie = c;
                     alert(response.body)
+                    window.location.replace('index.html');
                 }
                 if(response.statusCode == "401"){
                     alert(response.body)
