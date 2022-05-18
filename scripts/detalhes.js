@@ -38,10 +38,12 @@ function infosCarro(obj){
 
 function infosMaiorLance(obj){
     let arrayLances = obj.body.lances;
-    let maxLance = arrayLances.reduce((max, lance) => max.valor > lance.valor ? max : lance);
-    document.getElementById("nome-maior-lance").innerHTML = `${maxLance.nome}`;
-    document.getElementById("valor-maior-lance").innerHTML = `${maxLance.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`;
-    document.getElementById("horario-maior-lance").innerHTML = `${maxLance.data_hora}`;
+    if(arrayLances.length > 0){
+      let maxLance = arrayLances.reduce((max, lance) => max.valor > lance.valor ? max : lance);
+      document.getElementById("nome-maior-lance").innerHTML = `${maxLance.nome}`;
+      document.getElementById("valor-maior-lance").innerHTML = `${maxLance.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`;
+      document.getElementById("horario-maior-lance").innerHTML = `${maxLance.data_hora}`;
+    }
 }
 
 $(function () {
@@ -68,6 +70,9 @@ $(function () {
             if(response.statusCode == "410"){
               alert("Oferta expirada! Não é possível inserir lances");
             }
+            if(response.statusCode == "400"){
+              alert("Você não pode cadastrar um lance menor que o lance mínimo!")
+            }
             if(response.statusCode == "200"){
               alert("Lance inserido com sucesso")
               window.location.reload()
@@ -84,12 +89,13 @@ $(function () {
 });
 
 function timer(obj){
+  if(obj !== undefined){
     // Set the date we're counting down to
     var countDownDate = new Date(obj.body.data_hora_expiracao).getTime();
       
     // Update the count down every 1 second
     var x = setInterval(function() {
-    
+  
       // Get today's date and time
       var now = new Date().getTime();
     
@@ -112,6 +118,7 @@ function timer(obj){
         document.getElementById("demo").innerHTML = "Acabou o Tempo!";
       }
     }, 1000);
+  }
 }
 
 
