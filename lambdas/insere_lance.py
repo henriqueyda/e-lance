@@ -8,6 +8,7 @@ from boto3.dynamodb.conditions import Key
 
 dynamodb = boto3.resource('dynamodb')
 tabelaVeiculos = dynamodb.Table('Veiculos')
+tabelaUsuarios = dynamodb.Table('Usuarios')
 
 def lambda_handler(event, context):
     try:
@@ -15,20 +16,32 @@ def lambda_handler(event, context):
         infos = [element.split("=")[1] for element in unquote_plus(event['body'], encoding='utf-8').split("&")]
         
         id_veiculo = infos[0]
-        id_cliente = infos[1]
-        nome = infos[2]
-        valor = infos[3]
-        
-        response = tabelaVeiculos.query(
-            KeyConditionExpression=Key('id').eq(id_veiculo)
-        )
-        data_hora_expiracao = datetime.strptime(response['Items'][0]['data_hora_expiracao'],'%Y-%m-%d %H:%M:%S')
-        
+        valor = infos[1]
+        email = infos[2]
         
         valor = valor.replace('.', '')
         valor = valor.replace(',', '.')
         
         valor = Decimal(valor)
+        
+        response_veiculos = tabelaVeiculos.query(
+            KeyConditionExpression=Key('id').eq(id_veiculo)
+        )
+        data_hora_expiracao = datetime.strptime(response_veiculos['Items'][0]['data_hora_expiracao'],'%Y-%m-%d %H:%M:%S')
+        lance_minimo = Decimal(response_veiculos['Items'][0]['lance_minimo'])
+        
+        if valor < lance_minimo:
+            return {
+                'statusCode': 400,
+                'body': 'Você não pode cadastrar um lance menor que o lance mínimo!'
+            }
+        
+        response_usuarios = tabelaUsuarios.query(
+            KeyConditionExpression=Key('email').eq(email)
+        )
+        usuario = response_usuarios['Items'][0]
+        nome = usuario['nome'] + ' ' + usuario['sobrenome']
+        
         
         if data_hora >= data_hora_expiracao:
             return {
@@ -47,7 +60,7 @@ def lambda_handler(event, context):
                    "valor": valor,
                    "nome": nome,
                    "data_hora": data_hora.strftime('%Y-%m-%d %H:%M:%S'),
-                   "id_cliente": id_cliente
+                   "email": email
                 }],
             },
             ReturnValues="UPDATED_NEW"
@@ -62,4 +75,3 @@ def lambda_handler(event, context):
             'statusCode': 400,
             'body': json.dumps('Erro ao tentar inserir lances' + repr(e))
         }
-        

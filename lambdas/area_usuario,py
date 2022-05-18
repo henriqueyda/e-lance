@@ -7,16 +7,16 @@ dynamodb = boto3.resource('dynamodb')
 tableAreaUsuario = dynamodb.Table('Usuarios')
 
 def lambda_handler(event, context):
-    user = str(event['id'])
+    email = str(event['email'])
     try:
         response = tableAreaUsuario.query(
-            KeyConditionExpression=Key('id').eq(user))
+            KeyConditionExpression=Key('email').eq(email))
         return {
             'statusCode': 200,
             'body': json.dumps(response['Items'][0])
         }
-    except Exception:
+    except Exception as e:
         return {
             'statusCode': 400,
-            'body': json.dumps('Erro ao tentar ver dados do usuario')
+            'body': json.dumps('Erro ao tentar ver dados do usuario:'+repr(e))
         }

@@ -1,7 +1,6 @@
 import json
 from urllib.parse import unquote_plus
 import boto3
-import uuid
 
 dynamodb = boto3.resource('dynamodb')
 tabelaUsuarios = dynamodb.Table('Usuarios')
@@ -29,7 +28,6 @@ def lambda_handler(event, context):
         
         response = tabelaUsuarios.put_item(
             Item={
-                'id': str(uuid.uuid4()),
                 'nome': nome,
                 'sobrenome': sobrenome,
                 'cep': cep,
@@ -51,4 +49,3 @@ def lambda_handler(event, context):
             'statusCode': 400,
             'body': json.dumps('Erro ao tentar cadastrar usuário')
         }
-        
