@@ -28,6 +28,7 @@ function getUsuario(){
                 let prop = JSON.parse(obj.body);
                 document.getElementById("nome-usuario").innerHTML = `Olá ${prop.nome}`
                 document.getElementById("acessar-conta").style.display = 'none';
+                document.getElementById("cadastrar").style.display = 'none';
             }
         }
     }
