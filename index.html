@@ -38,14 +38,14 @@
         <img src="images/user-icon.png" class="mr-2" alt="">
         <div class="d-flex flex-column">
           <a class="font-weight-bold p-0 m-0 link" href="login.html" id="acessar-conta">Acessar conta</a>
-          <p class="font-weight-bold p-0 m-0 link" id="nome-usuario"></p>
+          <a class="font-weight-bold p-0 m-0 link" id="nome-usuario"></a>
           <a class="font-weight-bold p-0 m-0 link" href="cadastro.html" id="cadastrar">Cadastre-se</a>
-          <a class="font-weight-bold p-0 m-0 link" href="areaUsuario.html">Área usuário</a>
-          <a class="font-weight-bold p-0 m-0 link" href="login.html" id="logout">Sair</a>
+          <a class="font-weight-bold p-0 m-0 link" href="areaUsuario.html" id="areaUsuario" style="display:none;">Área usuário</a>
+          <a class="font-weight-bold p-0 m-0 link" href="login.html" id="logout" style="display:none;">Sair</a>
         </div>
       </div>
     </nav>
-    <nav class="w-100 d-flex align-items-center" style="background:var(--preto);height: 50px;">
+    <nav id="navOptions" class="w-100 d-flex align-items-center" style="background:var(--preto);height: 50px;">
       <a class="p-3" href="index.html" style="color: var(--branco);">Home</a>
       <a class="p-3" href="leiloes.html" style="color: var(--branco);">Leilões</a>
     </nav>
@@ -57,7 +57,7 @@
       <h1 class="font-weight-bold w-100 mb-4" style="font-size: 36px;">Veiculos em Destaque</h1>
       <!-- session -->
       <section class="w-100 d-flex justify-content-center align-items-center h-100">
-  
+
         <div class="owl-carousel owl-theme" id="carousel">
         </div>
       </section>
@@ -84,21 +84,21 @@
   <script>
     $(document).ready(function () {
       $('.owl-carousel').owlCarousel({
-        loop:true,
-        margin:10,
-        nav:true,
-        responsive:{
-          0:{
-            items:1
+        loop: true,
+        margin: 10,
+        nav: true,
+        responsive: {
+          0: {
+            items: 1
           },
-          600:{
-            items:3
+          600: {
+            items: 3
           },
-          1000:{
-            items:3
+          1000: {
+            items: 3
           },
-          1500:{
-            items:5
+          1500: {
+            items: 5
           }
         }
       })
