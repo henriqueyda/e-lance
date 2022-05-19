@@ -34,7 +34,7 @@ function getUsuario(){
                 document.getElementById("areaUsuario").style.display = 'block';
                 
                 $("#navOptions").append(`
-                    <a class="font-weight-bold p-0 m-0 link" href="cadastroVeiculo.html">Cadastrar Veículo</a>
+                    <a class="p-3" href="cadastroVeiculo.html" style="color: var(--branco);">Cadastrar Veículo</a>
                 `);
             }
         }
