@@ -37,11 +37,11 @@
                 <img src="images/user-icon.png" class="mr-2" alt="">
                 <div class="d-flex flex-column">
                     <a class="font-weight-bold p-0 m-0 link" href="login.html" id="acessar-conta">Acessar conta</a>
-                    <p class="font-weight-bold p-0 m-0 link" id="nome-usuario"></p>
+                    <a class="font-weight-bold p-0 m-0 link" id="nome-usuario"></a>
                     <a class="font-weight-bold p-0 m-0 link" href="cadastro.html" id="cadastrar">Cadastre-se</a>
-                    <a class="font-weight-bold p-0 m-0 link" href="areaUsuario.html">Área usuário</a>
-                    <a class="font-weight-bold p-0 m-0 link" href="login.html" id="logout">Sair</a>   
-                </div>
+                    <a class="font-weight-bold p-0 m-0 link" href="areaUsuario.html" id="areaUsuario" style="display:none;">Área usuário</a>
+                    <a class="font-weight-bold p-0 m-0 link" href="login.html" id="logout" style="display:none;">Sair</a>
+                  </div>
             </div>
         </nav>
         <nav class="w-100 d-flex align-items-center" style="background:var(--preto);height: 50px;">
@@ -80,13 +80,16 @@
             </div>
 
             <div class="d-flex flex-column col-12 col-sm-6">
-                <div class="mb-3">
-                    <label for="">Endereço</label>
-                    <input type="text" id="endereco" class="form-control" name="endereco" readonly>
-                </div>
-                <div class="mb-3">
-                    <label for="">Número</label>
-                    <input type="text" id="numero" class="form-control" name="numero" required>
+                <div class="d-flex">
+                    <div class="mb-3 w-100">
+                        <label for="" class="form-label">Endereço</label>
+                        <input type="text" class="form-control" id="endereco" readonly>
+                    </div>
+
+                    <div class="mb-3 pl-2" style="width: 30%;">
+                        <label for="" class="form-label">Numero</label>
+                        <input type="text" class="form-control" id="numero" name="numero" required>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="E-mail">E-mail</label>
@@ -99,6 +102,22 @@
                 <div class="mb-3">
                     <label for="confimarSenha">Confirmar Senha</label>
                     <input class="form-control" type="password" name="confimarSenha" id="confimarSenha" required>
+                </div>
+                <div class="mb-3">
+                    <label for="">Qual perfil você seria?</label>
+                    <div class="d-flex">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="option" id=""
+                                value="vendedor">
+                            <label class="form-check-label" for="inlineRadio1">Vendedor</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="option" id=""
+                                value="comprador">
+                            <label class="form-check-label" for="inlineRadio2">Comprador</label>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
