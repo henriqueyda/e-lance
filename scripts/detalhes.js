@@ -37,13 +37,20 @@ function infosCarro(obj){
 }
 
 function infosMaiorLance(obj){
-    let arrayLances = obj.body.lances;
-    if(arrayLances.length > 0){
-      let maxLance = arrayLances.reduce((max, lance) => max.valor > lance.valor ? max : lance);
-      document.getElementById("nome-maior-lance").innerHTML = `${maxLance.nome}`;
-      document.getElementById("valor-maior-lance").innerHTML = `${maxLance.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`;
-      document.getElementById("horario-maior-lance").innerHTML = `${maxLance.data_hora}`;
-    }
+  debugger
+  let lances = obj.body.lances;
+  let maxLances = []
+  for(const key in lances){
+    const user = lances[key]
+    const maxLance = user.reduce((max, lance) => max.valor > lance.valor ? max : lance)
+    maxLances.push(maxLance);
+  }
+  if(maxLances.length > 0){
+    const maxLance = maxLances.reduce((max, lance) => max.valor > lance.valor ? max : lance);
+    document.getElementById("nome-maior-lance").innerHTML = `${maxLance.nome}`;
+    document.getElementById("valor-maior-lance").innerHTML = `${maxLance.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}`;
+    document.getElementById("horario-maior-lance").innerHTML = `${maxLance.data_hora}`;
+  }
 }
 
 $(function () {
