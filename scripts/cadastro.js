@@ -31,6 +31,10 @@ $('#nome').keyup(function () {
 $('#sobrenome').keyup(function () {
   this.value = this.value.replace(/[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]/g, '');
 });
+//mask para campo sobrenome somente letras e numeros
+$('#numero').keyup(function () {
+  this.value = this.value.replace(/[^A-Z0-9]/gi, '');
+});
 
 //mask para o campo cep
 $('#cep').on('input', function () {
@@ -52,6 +56,7 @@ $('#cep').blur(function () {
         $('#cidade').val(data.localidade);
         $('#estado').val(data.uf);
         $('#endereco').val(data.logradouro);
+        $('#endereco').attr('title', data.logradouro)
       } else {
         alert('Cep não encontrado! Digite um cep válido.');
         $('#cep').val('');
