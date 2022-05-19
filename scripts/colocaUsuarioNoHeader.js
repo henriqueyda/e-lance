@@ -25,10 +25,17 @@ function getUsuario(){
         xhttp.onload = () => {
             const obj = JSON.parse(xhttp.responseText);
             if (obj.statusCode == 200) {
+                // debugger
                 let prop = JSON.parse(obj.body);
                 document.getElementById("nome-usuario").innerHTML = `Olá ${prop.nome}`
                 document.getElementById("acessar-conta").style.display = 'none';
                 document.getElementById("cadastrar").style.display = 'none';
+                document.getElementById("logout").style.display = 'block';
+                document.getElementById("areaUsuario").style.display = 'block';
+                
+                $("#navOptions").append(`
+                    <a class="font-weight-bold p-0 m-0 link" href="cadastroVeiculo.html">Cadastrar Veículo</a>
+                `);
             }
         }
     }
