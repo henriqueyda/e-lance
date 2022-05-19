@@ -15,12 +15,9 @@
 
 header{
     min-height: 232px;
+    background: var(--azul);
 }
-#campo-pesquisa{
-    background: var(--branco);
-    height: 49px;
-    width: 50%;
-}
+
 .link{
     color: var(--preto);
 }
