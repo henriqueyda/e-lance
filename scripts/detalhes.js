@@ -37,7 +37,7 @@ function infosCarro(obj){
 }
 
 function infosMaiorLance(obj){
-  debugger
+  // debugger
   let lances = obj.body.lances;
   let maxLances = []
   for(const key in lances){
