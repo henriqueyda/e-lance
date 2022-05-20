@@ -14,10 +14,8 @@
 }
 
 header{
-    min-height: 232px;
     background: var(--azul);
 }
-
 .link{
     color: var(--preto);
 }
@@ -26,3 +24,9 @@ footer{
     min-height: 70px;
 }
 footer > h6{color: var(--branco);}
+
+@media only screen and (max-width: 425px) {
+    .navbar{width: 100% !important;}
+    .navbar-brand > img{width: 100PX;}
+
+}
