@@ -25,7 +25,7 @@ if(email != null){
 
     xhttp.onload = () => {
         const obj = JSON.parse(xhttp.responseText);
-
+        console.log(obj)
         if (obj.statusCode == 200) {
             let prop = JSON.parse(obj.body);
             $("#nome").val(prop.nome + ' ' + prop.sobrenome)
