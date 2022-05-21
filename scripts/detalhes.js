@@ -53,6 +53,43 @@ function infosMaiorLance(obj){
   }
 }
 
+function getLancesUsuarios(){
+  let idVeiculo = getIdVeiculo();
+  const url = 'https://n0ve6m2rof.execute-api.us-east-1.amazonaws.com/versao1';
+  const xhttp = new XMLHttpRequest();
+
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split( ';' );
+  let email;
+  for( let i = 0; i < ca.length; i++ ){
+    if( ca[i].indexOf( "username=" ) == 0 ){
+      email = ca[i].substring( "username=".length, ca[i].length );
+    }
+  }
+  if(email != null){
+
+    var data = {
+    "id_veiculo": idVeiculo,
+    "email": email
+    };
+    var jsondata = JSON.stringify(data);
+    xhttp.open("POST", url);
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(jsondata);
+    xhttp.onload = () => {
+      const obj = JSON.parse(this.responseText);
+      const arr = obj.body;
+      arr.forEach(element => {
+        let item = `<tr>
+          <td>${element.data_hora}</td>
+          <td>${element.valor}</td>
+        </tr>`;
+        document.getElementById("tabela-lances").innerHTML += item;
+      });
+    }
+  }
+}
+
 $(function () {
 
     $('form').on('submit', function (e) {
@@ -138,4 +175,5 @@ function timer(obj){
 
 xhttp = getInfos();
 xhttp.onload = putInfos;
+getLancesUsuarios();
 timer();
