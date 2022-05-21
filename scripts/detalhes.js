@@ -76,7 +76,7 @@ function getLancesUsuarios(){
     xhttp.open("POST", url);
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhttp.send(jsondata);
-    xhttp.onload = () => {
+    xhttp.onload = function() {
       const obj = JSON.parse(this.responseText);
       const arr = obj.body;
       arr.forEach(element => {
