@@ -82,7 +82,7 @@ function getLancesUsuarios(){
       arr.forEach(element => {
         let item = `<tr>
           <td>${element.data_hora}</td>
-          <td>${element.valor}</td>
+          <td>${element.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
         </tr>`;
         document.getElementById("tabela-lances").innerHTML += item;
       });
