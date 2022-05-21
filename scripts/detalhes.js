@@ -122,7 +122,14 @@ function timer(obj){
       // If the count down is finished, write some text
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("demo").innerHTML = "Acabou o Tempo!";
+        const vencedor = document.getElementById("nome-maior-lance").innerText
+        const valor = document.getElementById("valor-maior-lance").innerText
+        if(vencedor != ''){
+          document.getElementById("demo").innerHTML = `Acabou o Tempo! ${vencedor} ganhou o leilão com um lance de ${valor}`;
+        }
+        else {
+          document.getElementById("demo").innerHTML = `Acabou o Tempo! Não houve lances`;
+        }
       }
     }, 1000);
   }
