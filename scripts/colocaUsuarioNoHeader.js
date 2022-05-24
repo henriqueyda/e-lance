@@ -13,8 +13,8 @@ function getUsuario(){
         if( ca[i].indexOf( "username=" ) == 0 ){
             email = ca[i].substring( "username=".length, ca[i].length );
         }
-        if( ca[i].indexOf( "tipo=" ) == 0 ){
-            tipo = ca[i].substring( "tipo=".length, ca[i].length );
+        if( ca[i].indexOf( " tipo=" ) == 0 ){
+            tipo = ca[i].substring( " tipo=".length, ca[i].length );
         }
     }
 
