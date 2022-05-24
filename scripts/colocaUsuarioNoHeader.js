@@ -8,6 +8,7 @@ function getUsuario(){
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split( ';' );
     let email;
+    let tipo;
     for( let i = 0; i < ca.length; i++ ){
         if( ca[i].indexOf( "username=" ) == 0 ){
             email = ca[i].substring( "username=".length, ca[i].length );
