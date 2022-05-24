@@ -12,7 +12,7 @@ function getUsuario(){
         if( ca[i].indexOf( "username=" ) == 0 ){
             email = ca[i].substring( "username=".length, ca[i].length );
         }
-        if( ca[i].indexOf( "username=" ) == 0 ){
+        if( ca[i].indexOf( "tipo=" ) == 0 ){
             tipo = ca[i].substring( "tipo=".length, ca[i].length );
         }
     }
@@ -36,7 +36,7 @@ function getUsuario(){
                 document.getElementById("logout").style.display = 'block';
                 document.getElementById("areaUsuario").style.display = 'block';
 
-                if(tipo == "comprador"){
+                if(tipo == "vendedor"){
                     $("#navOptions").append(`
                     <a class="p-3" href="cadastroVeiculo.html" style="color: var(--branco);">Cadastrar Veículo</a>
                     `);

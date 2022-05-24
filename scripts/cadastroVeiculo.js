@@ -6,9 +6,12 @@ $(function () {
       if( ca[i].indexOf( "username=" ) == 0 ){
           email = ca[i].substring( "username=".length, ca[i].length );
       }
+      if( ca[i].indexOf( "username=" ) == 0 ){
+        tipo = ca[i].substring( "tipo=".length, ca[i].length );
+      }
   }
 
-  if(email != null){
+  if(tipo != "vendedor"){
     $('form').on('submit', function (e) {
       e.preventDefault();
   
@@ -28,6 +31,10 @@ $(function () {
       });
   
     });
+  }
+  else {
+    alert('Você precisa estar logado como vendedor para acessar esta página');
+    window.location.replace('index.html');
   }
   
   });
