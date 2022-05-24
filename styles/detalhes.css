@@ -18,6 +18,15 @@ main {
     align-items: center;
 }
 
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block; 
+}
+
 @media only screen and (max-width: 576px) {
     main{
         flex-direction: column;

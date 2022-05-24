@@ -9,6 +9,10 @@ xhttp.onload = function(){
     const obj = JSON.parse(this.responseText);
     const arr = obj.body;
     arr.forEach(element => {
+        let visivel = 'hidden';
+        if(element.expirado){
+            visivel = '';
+        }
         let item = `<tr>
         <td><img src="${element.foto}" height="60" alt=""></th>
         <td>${element.marca}</td>
@@ -17,6 +21,7 @@ xhttp.onload = function(){
         <td>
             <p>Lance inicial: ${element.lance_minimo}</p>
             <p>Número de lances: ${element.numero_lances}</p>
+            <p ${visivel} style="color:red">Leilão expirado!</p>
             <button class="btn font-weight-bold text-uppercase" onclick="window.location.href='detalhes.html?veiculo=${element.id}'" style="background: var(--cinza-escuro);color:var(--branco); font-size: 12px;">dar lance</button>
         </td>
     </tr>`;

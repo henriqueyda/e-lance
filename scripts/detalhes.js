@@ -53,6 +53,43 @@ function infosMaiorLance(obj){
   }
 }
 
+function getLancesUsuarios(){
+  let idVeiculo = getIdVeiculo();
+  const url = 'https://n0ve6m2rof.execute-api.us-east-1.amazonaws.com/versao1';
+  const xhttp = new XMLHttpRequest();
+
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split( ';' );
+  let email;
+  for( let i = 0; i < ca.length; i++ ){
+    if( ca[i].indexOf( "username=" ) == 0 ){
+      email = ca[i].substring( "username=".length, ca[i].length );
+    }
+  }
+  if(email != null){
+
+    var data = {
+    "id_veiculo": idVeiculo,
+    "email": email
+    };
+    var jsondata = JSON.stringify(data);
+    xhttp.open("POST", url);
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(jsondata);
+    xhttp.onload = function() {
+      const obj = JSON.parse(this.responseText);
+      const arr = obj.body;
+      arr.forEach(element => {
+        let item = `<tr>
+          <td>${element.data_hora}</td>
+          <td>${element.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+        </tr>`;
+        document.getElementById("tabela-lances").innerHTML += item;
+      });
+    }
+  }
+}
+
 $(function () {
 
     $('form').on('submit', function (e) {
@@ -122,7 +159,14 @@ function timer(obj){
       // If the count down is finished, write some text
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("demo").innerHTML = "Acabou o Tempo!";
+        const vencedor = document.getElementById("nome-maior-lance").innerText
+        const valor = document.getElementById("valor-maior-lance").innerText
+        if(vencedor != ''){
+          document.getElementById("demo").innerHTML = `Acabou o Tempo! ${vencedor} ganhou o leilão com um lance de ${valor}`;
+        }
+        else {
+          document.getElementById("demo").innerHTML = `Acabou o Tempo! Não houve lances`;
+        }
       }
     }, 1000);
   }
@@ -131,4 +175,5 @@ function timer(obj){
 
 xhttp = getInfos();
 xhttp.onload = putInfos;
+getLancesUsuarios();
 timer();
