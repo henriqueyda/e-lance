@@ -11,7 +11,7 @@ $(function () {
       }
   }
 
-  if(tipo != "vendedor"){
+  if(tipo == "vendedor"){
     $('form').on('submit', function (e) {
       e.preventDefault();
   
