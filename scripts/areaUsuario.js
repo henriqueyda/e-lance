@@ -66,7 +66,7 @@ function ajaxLancesUsuario(email) {
                         <td><a href="detalhes.html?veiculo=${element.id_veiculo}">${element.nome_veiculo}</a></td>
                         <td>${element.data_hora}</td>
                         <td>
-                            <button class="btn font-weight-bold text-uppercase" style="background: var(--cinza-escuro);color:var(--branco); font-size: 12px;">remover lance</button>
+                            <button class="btn font-weight-bold text-uppercase" onclick="deletaLance(${element.email}, ${element.data_hora}, ${element.valor})" style="background: var(--cinza-escuro);color:var(--branco); font-size: 12px;">remover lance</button>
                         </td>
                     </tr>
                 `);
@@ -74,4 +74,16 @@ function ajaxLancesUsuario(email) {
             }
         }
     });
-} 
+}
+
+function deletaLance(email, data_hora, valor){
+    $.ajax({
+        url: "https://jbizgi1b7d.execute-api.us-east-1.amazonaws.com/versao1",
+        method: 'DELETE',
+        data:JSON.stringify({
+            "email": email,
+            "data_hora": data_hora,
+            "valor": valor
+        })
+    })
+}
