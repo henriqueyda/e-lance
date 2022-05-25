@@ -86,4 +86,5 @@ function deletaLance(email, data_hora, valor){
             "valor": valor
         })
     })
+    window.location.reload();
 }
