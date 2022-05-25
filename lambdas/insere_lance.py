@@ -29,6 +29,7 @@ def lambda_handler(event, context):
         )
         data_hora_expiracao = datetime.strptime(response_veiculos['Items'][0]['data_hora_expiracao'],'%Y-%m-%d %H:%M:%S')
         lance_minimo = Decimal(response_veiculos['Items'][0]['lance_minimo'])
+        nome_veiculo = response_veiculos['Items'][0]['marca'] + ' ' + response_veiculos['Items'][0]['nome']
         
         if valor < lance_minimo:
             return {
@@ -49,19 +50,23 @@ def lambda_handler(event, context):
                 'body': json.dumps('Oferta expirada! Não é possível inserir lances')
             }
         
-        
         tabelaVeiculos.update_item(
             Key={
                 "id":id_veiculo
             },
-            UpdateExpression="SET lances = list_append(lances, :l)",
+            UpdateExpression="SET lances.#usuario = list_append(if_not_exists(lances.#usuario, :empty_list), :l)",
+            ExpressionAttributeNames={
+                "#usuario": email
+            },
             ExpressionAttributeValues={
                 ':l': [{
-                   "valor": valor,
-                   "nome": nome,
-                   "data_hora": data_hora.strftime('%Y-%m-%d %H:%M:%S'),
-                   "email": email
+                    "id_veiculo": id_veiculo,
+                    "nome_veiculo": nome_veiculo,
+                    "valor": valor,
+                    "nome": nome,
+                    "data_hora": data_hora.strftime('%Y-%m-%d %H:%M:%S')
                 }],
+                ':empty_list': []
             },
             ReturnValues="UPDATED_NEW"
         )
@@ -75,3 +80,4 @@ def lambda_handler(event, context):
             'statusCode': 400,
             'body': json.dumps('Erro ao tentar inserir lances' + repr(e))
         }
+        

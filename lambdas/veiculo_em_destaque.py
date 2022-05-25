@@ -18,7 +18,7 @@ def lambda_handler(event, context):
             if data_hora <= data_hora_expiracao:
                 dici = {}
                 dici['nome'] = veiculo['marca'] + ' ' + veiculo['nome']
-                dici['numero_lances'] = len(veiculo['lances'])
+                dici['numero_lances'] = sum(len(lances) for lances in veiculo['lances'].values())
                 dici['foto'] = veiculo['foto']
                 dici['id'] = veiculo['id']
                 lista_destaque.append(dici)

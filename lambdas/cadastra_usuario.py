@@ -17,6 +17,7 @@ def lambda_handler(event, context):
         numero = infos[6]
         email = infos[7]
         senha = infos[8]
+        tipo = infos[10]
         
         lista_email = [usuario['email'] for usuario in tabelaUsuarios.scan()['Items']]
         
@@ -36,7 +37,8 @@ def lambda_handler(event, context):
                 'endereco': endereco,
                 'numero': numero,
                 'email': email,
-                'senha':  senha
+                'senha':  senha,
+                'tipo': tipo
             }    
         )
         
@@ -44,8 +46,9 @@ def lambda_handler(event, context):
             'statusCode': 200,
             'body': response
         }
-    except:
+    except Exception as e:
         return {
             'statusCode': 400,
-            'body': json.dumps('Erro ao tentar cadastrar usuário')
+            'body': json.dumps('Erro ao tentar cadastrar usuário' + repr(e))
         }
+        
