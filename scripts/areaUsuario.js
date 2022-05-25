@@ -54,7 +54,18 @@ function ajaxLancesUsuario(email) {
         method: 'GET',
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
-            console.log(data)
+            for (let i = 0; i < data.length; i++) {
+                const element = data[i];
+                $("#tbody").append(`
+                    <tr>
+                        <td>${i+1}</td>
+                        <td>${element.valor}</td>
+                        <td></td>
+                        <td>${element.data_hora}</td>
+                    </tr>
+                `);
+                
+            }
         }
     });
 } 
