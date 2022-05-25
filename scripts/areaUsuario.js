@@ -55,7 +55,7 @@ function ajaxLancesUsuario(email) {
         contentType: "application/json;charset=UTF-8",
         success: function (data) {
             for (let i = 0; i < data.body.length; i++) {
-                const element = data[i];
+                const element = data.body[i];
                 $("#tbody").append(`
                     <tr>
                         <td>${i+1}</td>
