@@ -8,9 +8,13 @@ function getUsuario(){
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split( ';' );
     let email;
+    let tipo;
     for( let i = 0; i < ca.length; i++ ){
         if( ca[i].indexOf( "username=" ) == 0 ){
             email = ca[i].substring( "username=".length, ca[i].length );
+        }
+        if( ca[i].indexOf( " tipo=" ) == 0 ){
+            tipo = ca[i].substring( " tipo=".length, ca[i].length );
         }
     }
 
@@ -32,10 +36,13 @@ function getUsuario(){
                 document.getElementById("cadastrar").style.display = 'none';
                 document.getElementById("logout").style.display = 'block';
                 document.getElementById("areaUsuario").style.display = 'block';
-                
-                $("#navOptions").append(`
+
+                if(tipo == "vendedor"){
+                    $("#navOptions").append(`
                     <a class="p-3" href="cadastroVeiculo.html" style="color: var(--branco);">Cadastrar Veículo</a>
-                `);
+                    `);
+                }
+                
             }
         }
     }
