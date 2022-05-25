@@ -59,7 +59,7 @@ function ajaxLancesUsuario(email) {
                 $("#tbody").append(`
                     <tr>
                         <td>${i+1}</td>
-                        <td>${element.valor}</td>
+                        <td>${element.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
                         <td></td>
                         <td>${element.data_hora}</td>
                     </tr>
