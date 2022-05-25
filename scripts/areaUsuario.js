@@ -66,7 +66,7 @@ function ajaxLancesUsuario(email) {
                         <td><a href="detalhes.html?veiculo=${element.id_veiculo}">${element.nome_veiculo}</a></td>
                         <td>${element.data_hora}</td>
                         <td>
-                            <button class="btn font-weight-bold text-uppercase" onclick="deletaLance(${email}, ${element.data_hora}, ${element.valor})" style="background: var(--cinza-escuro);color:var(--branco); font-size: 12px;">remover lance</button>
+                            <button class="btn font-weight-bold text-uppercase" onclick="deletaLance('${email}', '${element.data_hora}', '${element.valor}')" style="background: var(--cinza-escuro);color:var(--branco); font-size: 12px;">remover lance</button>
                         </td>
                     </tr>
                 `);
