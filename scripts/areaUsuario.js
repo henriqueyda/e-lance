@@ -60,8 +60,14 @@ function ajaxLancesUsuario(email) {
                     <tr>
                         <td>${i+1}</td>
                         <td>${element.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
-                        <td></td>
+                        // TODO: No HREF por a url do veiculo ex: window.location.href='detalhes.html?veiculo=${element.id}
+                        // e dentro da tag <a>por o nome do veiculo</a>
+
+                        <td><a href="#"></a></td>
                         <td>${element.data_hora}</td>
+                        <td>
+                            <button class="btn font-weight-bold text-uppercase" style="background: var(--cinza-escuro);color:var(--branco); font-size: 12px;">remover lance</button>
+                        </td>
                     </tr>
                 `);
                 
