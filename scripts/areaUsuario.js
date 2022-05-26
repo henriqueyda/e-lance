@@ -60,9 +60,6 @@ function ajaxLancesUsuario(email) {
                     <tr>
                         <td>${i+1}</td>
                         <td>${element.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
-                        // TODO: No HREF por a url do veiculo ex: window.location.href='detalhes.html?veiculo=${element.id}
-                        // e dentro da tag <a>por o nome do veiculo</a>
-
                         <td><a href="detalhes.html?veiculo=${element.id_veiculo}">${element.nome_veiculo}</a></td>
                         <td>${element.data_hora}</td>
                         <td>

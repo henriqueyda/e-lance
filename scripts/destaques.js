@@ -11,7 +11,7 @@ function getDestaques(){
       const arr = obj.body;
       arr.forEach(element => {
           let item = `<div class="item" style="box-shadow: 0 0 6px 0 #dadada;">
-          <img class="d-block" src="${element.foto}" alt="First slide">
+          <img class="d-block" src="${element.foto}" onclick="window.location.href='detalhes.html?veiculo=${element.id}'" alt="First slide" style="cursor:pointer;">
           <p>Nome: ${element.nome}</p>
           <p>Número total de lances: ${element.numero_lances}</p>
           <button class="border-0 btn-details" onclick="window.location.href='detalhes.html?veiculo=${element.id}'">Ver mais detalhes</button>
